@@ -9,7 +9,7 @@ class Beranda extends CI_Controller
     {
         $data['judul'] = 'Halaman Beranda';
         $this->load->view('Templates/header', $data);
-        $this->load->view('Beranda/index', $data);
+        $this->load->view('beranda/index', $data);
         $this->load->view('Templates/footer');
     }
 }
