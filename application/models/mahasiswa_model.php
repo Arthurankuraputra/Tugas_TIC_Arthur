@@ -10,6 +10,20 @@ class Mahasiswa_model extends CI_Model
         return $this->db->get('mahasiswa')->result_array();
     }
 
+    public function getALLJurusan()
+    {
+        return $this->db->get('jurusan')->result_array();
+    }
+
+    public function cariDataMahasiswa()
+    {
+        $keyword = $this->input->post('keyword', TRUE);
+        $this->db->like('matakuliah', $keyword);
+        $this->db->or_like('semester', $keyword);
+        $this->db->or_like('jurusan', $keyword);
+        return $this->db->get('mahasiswa')->result_array();
+    }
+
     public function ubahDataMahasiswa()
     {
         $data = [
